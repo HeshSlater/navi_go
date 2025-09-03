@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/welcome.dart'; // Adjust path as needed
+import 'screens/welcome.dart';
 
 void main() {
   runApp(MyApp());

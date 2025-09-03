@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'language.dart';
+import 'translations.dart';
 
 class WelcomePageTwo extends StatelessWidget {
   const WelcomePageTwo({super.key});
@@ -63,7 +65,7 @@ class WelcomePageTwo extends StatelessWidget {
       TextSpan(
         children: [
           TextSpan(
-            text: 'Welcome to \n',
+            text: tr('Welcome to \n'),
             style: TextStyle(
               color: Colors.black,
               fontSize: 32,
@@ -90,7 +92,7 @@ class WelcomePageTwo extends StatelessWidget {
 
   Widget _buildMainTagline() {
     return Text(
-      'Find your bus anytime anywhere',
+      tr('Find your bus anytime anywhere'),
       textAlign: TextAlign.center,
       style: TextStyle(
         color: Colors.black,
@@ -103,7 +105,7 @@ class WelcomePageTwo extends StatelessWidget {
 
   Widget _buildDescription() {
     return Text(
-      'Track your bus in real time with live \nGPS updates, so you always \nknow where it is.',
+      tr('Track your bus in real time with live \nGPS updates, so you always \nknow where it is.'),
       textAlign: TextAlign.center,
       style: TextStyle(
         color: Colors.black,
@@ -142,13 +144,17 @@ class WelcomePageTwo extends StatelessWidget {
         child: InkWell(
           onTap: () {
             // Navigate to language selection page
-            print('Get Started pressed!');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LanguageSelection()),
+            );
+            print(tr('Get Started pressed!'));
             // Navigator.pushNamed(context, '/language');
           },
           borderRadius: BorderRadius.circular(15),
           child: Center(
             child: Text(
-              'Get Started',
+              tr('Get Started'),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,
