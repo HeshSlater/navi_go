@@ -1,83 +1,47 @@
 import 'package:flutter/material.dart';
-import 'language.dart';
+import 'dart:async';
+import 'welcome_getstarted.dart';
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+class WelcomePageOne extends StatefulWidget {
+  const WelcomePageOne({super.key});
+
+  @override
+  State<WelcomePageOne> createState() => _WelcomePageOneState();
+}
+
+class _WelcomePageOneState extends State<WelcomePageOne> {
+  @override
+  void initState() {
+    super.initState();
+    // Automatically navigate to second page after 3 seconds
+    Timer(Duration(seconds: 3), () {
+      if (mounted) { // Safety check
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => WelcomePageTwo()),
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFFFF),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
+      backgroundColor: const Color(0xFF103339),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // App Logo
-              Image.asset(
-                "assets/NaviG.jpg",
-                width: 600,
-                height: 300,
-              ),
-
-              const SizedBox(height: 20),
-
-              // Title
-              const Text(
-                "Find your bus anytime anywhere",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Poppins',
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
-              // Subtitle
-              const Text(
-                "Track your bus in real time with live GPS updates, "
-                    "so you always know where it is.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black54,
-                  fontFamily: 'Poppins',
-                ),
-              ),
-
-              const SizedBox(height: 50),
-
-              // "Get Started" button
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LanguageScreen(),
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    "Get Started",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
-                      color: Colors.white,
-                    ),
-                  ),
+              // Logo Image
+              Container(
+                width: 500,
+                height: 500,
+                child: Image.asset(
+                  'assets/Navi_G.png',
+                  fit: BoxFit.contain,
                 ),
               ),
             ],
@@ -87,4 +51,3 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 }
-

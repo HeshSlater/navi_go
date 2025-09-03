@@ -58,7 +58,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/NaviG.jpg
+    - assets/Navi_G.png
+    - assets/BusPassengers.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

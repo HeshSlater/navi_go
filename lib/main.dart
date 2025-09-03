@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'screens/welcome.dart';
+import 'screens/welcome.dart'; // Adjust path as needed
 
 void main() {
-  runApp(const NaviGoApp());
+  runApp(MyApp());
 }
 
-class NaviGoApp extends StatelessWidget {
-  const NaviGoApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'NaviGo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
+        fontFamily: 'Poppins', // Set default font
       ),
-      home: const WelcomeScreen(),
+      home: WelcomePageOne(), // Start with first welcome page
+      debugShowCheckedModeBanner: false, // Removes debug banner
     );
   }
 }
